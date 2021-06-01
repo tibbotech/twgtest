@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-#define PFX "/sys/devices/platform/twg"
+#define PFX "/sys/devices/platform/soc@B/soc@B:twg"
 #define BLEN 512
 
 struct wg_data {
@@ -30,7 +30,7 @@ int main( int argc, char *argv[]) {
    printf( "\t sXX: is socket name, reads "PFX"sXX/data\n");
    return( 1);  }
  memset( fname, 0, 256);
- sprintf( fname, "%s-%s/data", PFX, argv[ 1]);
+ sprintf( fname, "%s_%s/data", PFX, argv[ 1]);
  if ( ( fd = open( fname, O_RDONLY)) < 0) return( 0);
 
  memset( &d, 0, sizeof( d));
