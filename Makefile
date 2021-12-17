@@ -2,7 +2,7 @@ PROG = twgtest
 TO = $(PREFIX)/home/root/dvtests/
 
 all:
-	$(CC) -o $(PROG) $(PROG).c
+	$(CC) $(CLFAGS) $(LDFLAGS) -o $(PROG) $(PROG).c
 
 clean:
 	rm -f $(PROG)
